@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        background: url(game.jpg.jpg) no-repeat center center/cover;
+        opacity: 0.9;
+      }
+      #head {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: skyblue;
+        opacity: 0.7;
+        font-size: 3em;
+        width: 100%;
+      }
+      #reset {
+        float: right;
+        width: 120px;
+        height: 50px;
+        border: 2px solid green;
+        background-color: orange;
+        color: green;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: white;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+      .hidden {
+        display: none;
+      }
+      #tic {
+        color: red;
+      }
+      #tack {
+        color: blue;
+      }
+      #toe {
+        color: yellow;
+      }
+      #container {
+        display: inline-block;
+        background-color: whitesmoke;
+      }
+
+      #holder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .button {
+        width: 100px;
+        height: 100px;
+        box-sizing: border-box;
+        text-align: center;
+        padding-top: 27px;
+        color: white;
+        cursor: pointer;
+        font-size: 2em;
+      }
+      #first-btn,
+      #second-btn,
+      #fourth-btn,
+      #fivth-btn,
+      #seventh-btn,
+      #eighth-btn {
+        border-right: 5px solid blue;
+      }
+      #first-row {
+        display: inline-flex;
+        border-bottom: 5px solid blue;
+      }
+      #second-row {
+        display: inline-flex;
+        border-bottom: 5px solid blue;
+      }
+      #third-row {
+        display: inline-flex;
+      }
+      .modal {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: skyblue;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 3em;
+        padding-top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="head">
+      <span id="tic">Tic_</span> <span id="tack">Tac_</span>
+      <span id="toe">Toe</span>
+    </header>
+    <button id="reset">Reset</button>
+    <div id="holder">
+      <div id="container">
+        <div id="first-row">
+          <div id="first-btn" class="button"></div>
+          <div id="second-btn" class="button"></div>
+          <div id="third-btn" class="button"></div>
+        </div>
+        <br />
+        <div id="second-row">
+          <div id="fourth-btn" class="button"></div>
+          <div id="fivth-btn" class="button"></div>
+          <div id="sixth-btn" class="button"></div>
+        </div>
+        <br />
+        <div id="third-row">
+          <div id="seventh-btn" class="button"></div>
+          <div id="eighth-btn" class="button"></div>
+          <div id="ninth-btn" class="button"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal hidden"></div>
+    <script>
+      "use strict";
+      let i = 1;
+
+      const firstBtn = document.getElementById("first-btn");
+      const secondBtn = document.getElementById("second-btn");
+      const thirdBtn = document.getElementById("third-btn");
+      const fourthBtn = document.getElementById("fourth-btn");
+      const fivthBtn = document.getElementById("fivth-btn");
+      const sixthBtn = document.getElementById("sixth-btn");
+      const seventhBtn = document.getElementById("seventh-btn");
+      const eighthBtn = document.getElementById("eighth-btn");
+      const ninthBtn = document.getElementById("ninth-btn");
+      const resetBtn = document.getElementById("reset");
+      const modalWindow = document.querySelector(".modal");
+
+      function evenOddChecking(buttonName) {
+        buttonName.style.backgroundColor = "red";
+        if (i % 2 !== 0) {
+          buttonName.textContent = "X";
+        } else {
+          buttonName.textContent = "O";
+        }
+      }
+
+      firstBtn.addEventListener("click", function first() {
+        evenOddChecking(firstBtn);
+        i++;
+      });
+      secondBtn.addEventListener("click", function () {
+        evenOddChecking(secondBtn);
+        i++;
+      });
+      thirdBtn.addEventListener("click", function () {
+        evenOddChecking(thirdBtn);
+        i++;
+      });
+      fourthBtn.addEventListener("click", function () {
+        evenOddChecking(fourthBtn);
+        i++;
+      });
+      fivthBtn.addEventListener("click", function () {
+        evenOddChecking(fivthBtn);
+        i++;
+      });
+      sixthBtn.addEventListener("click", function () {
+        evenOddChecking(sixthBtn);
+        i++;
+      });
+      seventhBtn.addEventListener("click", function () {
+        evenOddChecking(seventhBtn);
+        i++;
+      });
+      eighthBtn.addEventListener("click", function () {
+        evenOddChecking(eighthBtn);
+        i++;
+      });
+      ninthBtn.addEventListener("click", function () {
+        evenOddChecking(ninthBtn);
+        i++;
+      });
+
+      modalWindow.addEventListener("click", function () {
+        modalWindow.classList.add("hidden");
+        resetButtons();
+      });
+
+      //Reset
+      function resetButtons() {
+        firstBtn.textContent = "";
+        secondBtn.textContent = "";
+        thirdBtn.textContent = "";
+        fourthBtn.textContent = "";
+        fivthBtn.textContent = "";
+        sixthBtn.textContent = "";
+        seventhBtn.textContent = "";
+        eighthBtn.textContent = "";
+        ninthBtn.textContent = "";
+
+        firstBtn.style.backgroundColor = "white";
+        secondBtn.style.backgroundColor = "white";
+        thirdBtn.style.backgroundColor = "white";
+        fourthBtn.style.backgroundColor = "white";
+        fivthBtn.style.backgroundColor = "white";
+        sixthBtn.style.backgroundColor = "white";
+        seventhBtn.style.backgroundColor = "white";
+        eighthBtn.style.backgroundColor = "white";
+        ninthBtn.style.backgroundColor = "white";
+      }
+      resetBtn.addEventListener("click", function () {
+        resetButtons();
+      });
+
+      let id = setInterval(winner, 10);
+      function winner() {
+        //First matching row and First matching column
+        if (firstBtn.textContent.length !== 0) {
+          if (
+            (firstBtn.textContent === secondBtn.textContent &&
+              firstBtn.textContent === thirdBtn.textContent &&
+              secondBtn.textContent === thirdBtn.textContent) ||
+            (firstBtn.textContent === fourthBtn.textContent &&
+              fourthBtn.textContent === seventhBtn.textContent &&
+              firstBtn.textContent === seventhBtn.textContent)
+          ) {
+            modalWindow.textContent = `"${firstBtn.textContent}" is Winner! `;
+            modalWindow.classList.remove("hidden");
+            console.log("khan");
+          }
+        }
+        //Second matching row , Second matching column both diagnolas
+        if (fivthBtn.textContent.length !== 0) {
+          if (
+            (fourthBtn.textContent === fivthBtn.textContent &&
+              fivthBtn.textContent === sixthBtn.textContent &&
+              fourthBtn.textContent === sixthBtn.textContent) ||
+            (secondBtn.textContent === fivthBtn.textContent &&
+              fivthBtn.textContent === eighthBtn.textContent &&
+              secondBtn.textContent === eighthBtn.textContent) ||
+            (firstBtn.textContent === fivthBtn.textContent &&
+              fivthBtn.textContent === ninthBtn.textContent &&
+              firstBtn.textContent === ninthBtn.textContent) ||
+            (thirdBtn.textContent === fivthBtn.textContent &&
+              fivthBtn.textContent === seventhBtn.textContent &&
+              thirdBtn.textContent === seventhBtn.textContent)
+          ) {
+            modalWindow.textContent = `"${fivthBtn.textContent}" is Winner! `;
+            modalWindow.classList.remove("hidden");
+          }
+        }
+        //Third matching row and Third matching column
+        if (ninthBtn.textContent.length !== 0) {
+          if (
+            (seventhBtn.textContent === eighthBtn.textContent &&
+              eighthBtn.textContent === ninthBtn.textContent &&
+              seventhBtn.textContent === ninthBtn.textContent) ||
+            (thirdBtn.textContent === sixthBtn.textContent &&
+              sixthBtn.textContent === ninthBtn.textContent &&
+              thirdBtn.textContent === ninthBtn.textContent)
+          ) {
+            modalWindow.textContent = `"${ninthBtn.textContent}" is Winner! `;
+            modalWindow.classList.remove("hidden");
+          }
+        }
+      }
+
+      winner();
+    </script>
+  </body>
+</html>
