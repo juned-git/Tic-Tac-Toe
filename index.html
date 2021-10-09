@@ -12,6 +12,8 @@
       }
       body {
         background: url(game.jpg.jpg) no-repeat center center/cover;
+        width: 100%;
+        height: 100%;
         opacity: 0.9;
       }
       #head {
@@ -157,38 +159,47 @@
 
       firstBtn.addEventListener("click", function first() {
         evenOddChecking(firstBtn);
+        winner();
         i++;
       });
       secondBtn.addEventListener("click", function () {
         evenOddChecking(secondBtn);
+        winner();
         i++;
       });
       thirdBtn.addEventListener("click", function () {
         evenOddChecking(thirdBtn);
+        winner();
         i++;
       });
       fourthBtn.addEventListener("click", function () {
         evenOddChecking(fourthBtn);
+        winner();
         i++;
       });
       fivthBtn.addEventListener("click", function () {
         evenOddChecking(fivthBtn);
+        winner();
         i++;
       });
       sixthBtn.addEventListener("click", function () {
         evenOddChecking(sixthBtn);
+        winner();
         i++;
       });
       seventhBtn.addEventListener("click", function () {
         evenOddChecking(seventhBtn);
+        winner();
         i++;
       });
       eighthBtn.addEventListener("click", function () {
         evenOddChecking(eighthBtn);
+        winner();
         i++;
       });
       ninthBtn.addEventListener("click", function () {
         evenOddChecking(ninthBtn);
+        winner();
         i++;
       });
 
@@ -223,7 +234,6 @@
         resetButtons();
       });
 
-      let id = setInterval(winner, 10);
       function winner() {
         //First matching row and First matching column
         if (firstBtn.textContent.length !== 0) {
@@ -275,8 +285,6 @@
           }
         }
       }
-
-      winner();
     </script>
   </body>
 </html>
